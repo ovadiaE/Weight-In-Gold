@@ -2,11 +2,14 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const value = require('./routes/route')
-
-
+const connectDB = require('./config/db')
 
 dotenv.config({path: './config/config.env'});
+
 const app = express();
+
+connectDB();
+
 app.use(express.json())
 
 // dev logging middleware
