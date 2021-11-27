@@ -2,12 +2,14 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const value = require('./routes/route')
-
-
+var cors = require('cors')
 
 dotenv.config({path: './config/config.env'});
+
 const app = express();
+
 app.use(express.json())
+app.use(cors())
 
 // dev logging middleware
 if (process.env.NODE_ENV === 'development') {
@@ -15,7 +17,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use('/api/v1/weightingold', value)
-
 
 const PORT = process.env.PORT || 5000
 
