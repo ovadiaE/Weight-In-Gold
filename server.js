@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyparser = require('body-parser')
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const value = require('./routes/route')
@@ -10,6 +11,7 @@ const app = express();
 
 app.use(express.json())
 app.use(cors())
+app.use(bodyparser.json())
 
 // dev logging middleware
 if (process.env.NODE_ENV === 'development') {
