@@ -5,7 +5,7 @@ exports.getGoldValue = async (req, res, next) => {
         success:true,
         data: req.body
     })
-    gold = req.body.data
+    gold = req.body.data.value
 }
 
 exports.displayGoldValue = async (req, res, next) => {
