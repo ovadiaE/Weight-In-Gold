@@ -4,15 +4,15 @@ exports.getGoldValue = async (req, res, next) => {
     res.status(200).json({
         success:true,
         data: req.body
-    });
-    data = req.body.value
-    console.log(data)
+    }).send(req.body)
+    console.log(req.body)
 }
 
 exports.displayGoldValue = async (req, res, next) => {
+    console.log(res)
     const value = {
         "value": {
-            "data": data
+            "data": data,
        }
     }
     res.status(200).send(value)
